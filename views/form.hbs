@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add a Movie</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  nav {
+    background-color: #5c6bc0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  nav a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: #3f51b5;
+  }
+
+  .form-container {
+    background: white;
+    max-width: 500px;
+    width: 90%;
+    margin: 0rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #5c6bc0;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #333;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #5c6bc0;
+    box-shadow: 0 0 5px rgba(92, 107, 192, 0.4);
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #5c6bc0;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #3949ab;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    background-color: #303f9f;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add a Movie</h2>
+    <form method="POST" action="/api/movies">
+      <div class="form-group">
+        <label for="movie_id">Movie ID:</label>
+        <input type="text" id="movie_id" name="movie_id" />
+      </div>
+      <div class="form-group">
+        <label for="title">Movie Title:</label>
+        <!-- Changed name to match schema -->
+        <input type="text" id="title" name="title" required />
+      </div>
+      <div class="form-group">
+        <label for="released">Released:</label>
+        <!-- Changed name to match schema -->
+        <input type="date" id="released" name="released" placeholder="YYYY-MM-DD" required />
+      </div>
+      <div class="form-group">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" />
+      </div>
+      <div class="form-group">
+        <label for="director">Director:</label>
+        <input type="text" id="director" name="director" />
+      </div>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Movie</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Top Navigation */
+  nav {
+    background-color: #5c6bc0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav a:hover, nav a.active {
+    background-color: #3f51b5;
+  }
+
+ /* Container for forms */
+.container {
+  background-color: #fff;
+  padding: 45px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  width: 85%;
+  max-width: 600px;
+  margin: 5px auto; /* reduced gap from top nav */
+}
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  select, input[type="text"], button {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .quick-search {
+    margin-top: 25px;
+  }
+
+  .quick-search input {
+    margin-bottom: 10px;
+  }
+
+  .quick-search button {
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Search Container -->
+  <div class="container">
+    <h2>Find a Movie</h2>
+
+    <!-- Main Search Form -->
+    <form action="/forms/find-movie" method="POST">
+      <label for="type">Search By:</label>
+      <select name="type" id="type">
+        <option value="id">ID</option>
+        <option value="title">Title</option>
+      </select>
+
+      <label for="query">Enter value:</label>
+      <input type="text" name="query" id="query" required>
+
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Quick Search Form -->
+    <form class="quick-search" action="/search" method="GET">
+      <input type="text" name="movie_id" placeholder="Search by ID">
+      <input type="text" name="movie_title" placeholder="Search by Title">
+      <button type="submit">Quick Search</button>
+    </form>
+  </div>
+
+</body>
+</html>

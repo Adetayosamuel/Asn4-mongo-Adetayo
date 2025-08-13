@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Update a Movie</h2>
+
+  {{#if message}}
+    <p style="color:green; font-weight:bold;">{{message}}</p>
+  {{/if}}
+
+  <form action="/update-movie" method="POST">
+    <label for="movie_id">Movie ID (_id or movie_id):</label>
+    <input type="text" id="movie_id" name="movie_id" required placeholder="Enter movie _id or movie_id">
+
+    <label for="title">New Title:</label>
+    <input type="text" id="title" name="title" required placeholder="Enter new title">
+
+    <label for="released">New Released Date:</label>
+    <input type="date" id="released" name="released" required>
+
+    <button type="submit">Update Movie</button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<h2>Delete a Movie</h2>
+
+{{#if message}}
+  <p style="color: green; font-weight: bold;">{{message}}</p>
+{{/if}}
+
+<form action="/delete-movie" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+  <label for="movie_id">Movie ID:</label>
+  <input type="text" id="movie_id" name="movie_id" placeholder="Enter movie _id or movie_id" required>
+
+  <button type="submit" style="padding: 10px; border-radius: 6px; border: none; background-color: #FF4B5C; color: white; font-weight: bold; cursor: pointer;">
+    Delete Movie
+  </button>
+</form>

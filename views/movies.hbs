@@ -1,0 +1,9 @@
+<h1>All Movies ({{movies.length}})</h1>
+<ul>
+  {{#each movies}}
+    <li>
+      <strong>{{movie_title}}</strong> ({{#if Released}}{{formatDate Released}}{{/if}}) -
+      <a href="/movies/{{_id}}/view">view</a>
+    </li>
+  {{/each}}
+</ul>
