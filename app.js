@@ -1,3 +1,4 @@
+//  Question 1-2
 const express = require('express');
 const connectDB = require('./config/database');
 const Employee = require('./models/employee');
@@ -10,7 +11,9 @@ connectDB();
 // Middleware to parse request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.get('/', (req, res) => {
+  res.send('Welcome to the Employee Management API');
+});
 // Create Employee
 app.post('/api/employees', async (req, res) => {
   try {
@@ -41,7 +44,8 @@ app.get('/api/employees/:id', async (req, res) => {
 });
 
 app.listen(8000, () => console.log('Server running on port 8000'));
-
+  
+// Question3-4
 // app.js
 // const express = require('express');
 // const bodyParser = require('body-parser');
